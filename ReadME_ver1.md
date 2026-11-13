@@ -20,7 +20,7 @@ You do not need to run the Mixed Reality Feature Tool: the MRTK and OpenXR packa
 2. Clone the repo, using the repo's own URL:
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/thanhthu152/hololimb.git
 ```
 
 3. In Unity Hub click **Add > Add project from disk** and select the cloned folder (the one that contains Assets, Packages and ProjectSettings).
@@ -50,17 +50,6 @@ The MRTK Input Simulator replaces real hand tracking in the Editor. Click inside
 | Look around | Hold the right mouse button and move the mouse |
 
 Only the first two controls were verified during setup. Other keys (movement, left hand) depend on the Input Simulator version; check the key hints MRTK shows in the Game view, or the Input Simulator object's settings, before relying on them.
-
-## Build and deploy to HoloLens 2
-
-Skip this section if you only test in the Editor. The build path has not been test-built yet at the time of writing, so treat the steps as a starting point and report any error.
-
-1. **Visual Studio.** In Visual Studio Installer > Modify, tick the Game development with Unity and Desktop development with C++ workloads. Under Individual components add **MSVC Build Tools for ARM64/ARM64EC (Latest)**, **C++ Universal Windows Platform support for ARM64/ARM64EC build tools (Latest MSVC)** and a **Windows 11 SDK**. USB Device Connectivity is only needed for cable deployment.
-2. **Build from Unity.** File > Build Settings > Add Open Scenes, then Build into a folder named Builds outside Assets (this folder is not committed to Git).
-3. **Deploy.** Open the generated .sln file in Visual Studio, set the configuration to **Release**, the architecture to **ARM64** and the target to **Remote Machine** (Wi-Fi, enter the headset's IP address) or **Device** (USB), then run without debugging.
-4. **Headset setup.** Settings > Update & Security > For developers: turn on Developer Mode and Device Portal. Keep the PC and headset on the same Wi-Fi network.
-
-**If the build fails with MSB8020** ("build tools for v143 ... cannot be found"): Unity 2022.3.62f3 has a known issue (UUM-127114) when Visual Studio 2026 is the only Visual Studio installed. Install Visual Studio 2022 Community alongside, with the Universal Windows Platform development workload, and select it in the Visual Studio Version field of Build Settings. The alternative is upgrading Unity to 2022.3.70f1 or later, which the whole team must do together.
 
 ## Troubleshooting
 
