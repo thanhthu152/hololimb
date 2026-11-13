@@ -109,7 +109,6 @@ BundleArtifacts/
 *.pubxml.user
 project.lock.json
 .nuget/
-packages/
 *.nupkg
 
 # ===========================================
